@@ -5,21 +5,33 @@
     <link rel="icon" href="images/nfl-logo.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/7de87d4cfb.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
-
+    <script src="nav_scroll.js"></script>
 </head>
-<div>
-    <header>
-        <h1>NFL Stuffs!</h1>
-        <div>
-            Scores & Schedule
-        </div>
-        <div class="date"></div>
-    </header>
-    <ul class ="week">
-    </ul>
 
+<header>
+    <h1>NFL Stuffs!</h1>
+    <div>
+        Scores & Schedule
+    </div>
+    <div class="date"></div>
+</header>
+<div class="wrapper">
+    <ul class="list-wrapper">
+        <ul class="hover-left inline">
+            <li><i class="fa fa-chevron-left test" aria-hidden="true"></i></li>
+        </ul>
+        <ul class ="week"></ul>
+        <ul class="hover-right">
+            <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+        </ul>
+    </ul>
+</div>
+
+
+<div>
     <!-- desktop landing -->
     <div class="col-sm-6 hidden-xs">
         <div class="landing1">
@@ -34,4 +46,6 @@
         <div class="landing3">
         </div>
     </div>
+</div>
 </body>
+</html>
