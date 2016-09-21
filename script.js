@@ -1,16 +1,33 @@
-var up_down_flag="down";
-var number_of_games = 16; //array length for number of games
+var up_down_flag=[];
+var number_of_games = null; //array length for number of games
 var current_week = 5;
 var year = 2016;
 var score_box_data = null; // ** Holds all the data from the fantasy website
 
 
-/**
- * Function to pull API score data from a season and week in NFL Football and console.logs it out
- * @param {Number} season A year whose scores you are looking for
- * @param {Number} week A week whose scores you are looking for
- * @example score_box(2016, 2)
- */
+    function format_time(timeX) {
+        var str = timeX;
+        var index = str.indexOf("T")
+        var time = str.slice(index + 1);
+        var hour = Number(time.slice(0,2));
+        var min = time.slice(2)
+        var set = "AM"
+
+        if (hour === 0 ){
+            hour = 12;
+        } else if (hour > 12){
+            hour -= 12;
+            set = "PM"
+        }
+        var date = str.slice(0, index);
+        var year = date.slice(0,4)
+        var month = date.slice(5,7)
+        var day = date.slice(8)
+        console.log(day)
+        return hour + min + " " +set + " "+ month + "/" + day + "/" + year;
+    }
+
+
 function score_box(season, week){
     console.log("yayaya");
     var data_url = "https://api.fantasydata.net/v3/nfl/stats/JSON/BoxScores/"; //2016/2?
@@ -38,17 +55,20 @@ function score_box(season, week){
                 display_data(season, week);
                 generate_schedule_d();
                 generate_schedule_m();
+                flags();
             })
             .fail(function() {
                 alert("error");
             });
     });
 }
-/**
- * Displays the data pulled from the API via console.logs
- * @param {Number} game_season The year of interest
- * @param {Number} game_week The week in the year of interest
- */
+
+function flags(){
+    for(i=0;i<=20;i++){ //may need to change length if more than 42 nfl games exist at some point...
+        up_down_flag[i]= "down";
+    }
+}
+
 function display_data(game_season, game_week){
     console.log("Season: " + game_season + " | Week: " + game_week);
     console.log("-------------------------");
@@ -71,7 +91,6 @@ function display_data(game_season, game_week){
 
 $(document).ready( function (){
     score_box(year,current_week);
-    click_handlers();
     set_date();
     gen_weeks(current_week);
 });
@@ -87,37 +106,42 @@ function gen_weeks(val){
 }
 
 function set_date(){
-    var date = Date();
-    $(".date").append(date);
+    var date = new Date();
+    var local_date =date.toLocaleDateString();
+    var local_time =date.toLocaleTimeString();
+    var total_date = local_time+'&nbsp;'+'&nbsp;'+local_date;
+    $('.date').append(total_date);
 }
 
 function click_handlers (){
     $('.down').click(function (){
+        console.log("click!");
         var data = $(this).data('position');
         $('#game_menu'+data).slideToggle();
 
-        if(up_down_flag == "down") {
-            $('#down' + data).removeClass().addClass('up');
+        if(up_down_flag[data] == "down") {
+            $('#down'+data).removeClass().addClass('up');
             $('#info'+data).text('LESS NEWS')
-            up_down_flag="up";
+            up_down_flag[data]="up";
         }
         else{
-            $('#down' + data).removeClass().addClass('down');
+            $('#down'+data).removeClass().addClass('down');
             $('#info'+data).text('MORE NEWS')
-            up_down_flag="down";
+            up_down_flag[data]="down";
         }
     })
 };
 
 function generate_schedule_d() {
-    for (i = 0; i < number_of_games; i++) {
+    number_of_games = score_box_data.length;
+    for (i = 0; i < score_box_data.length; i++) {
         var general_game_data = score_box_data[i].Score;
         var home_team = general_game_data.HomeTeam;
         var home_score = general_game_data.HomeScore;
         var away_team = general_game_data.AwayTeam;
         var away_score = general_game_data.AwayScore;
         var quarter = general_game_data.QuarterDescription;
-        var date = general_game_data.Date;
+        var date = format_time(general_game_data.Date);
 
 
         var game1 = $('<div>').attr('id', 'game' + i).addClass('game_box');
@@ -159,14 +183,15 @@ function generate_schedule_d() {
         }
 
         if (i % 2 == 0) {
-            $('.landing1').append(game1,game_menu,down1);
+            $('.landing1').append(game1,game_menu);
         }
         else {
 
-            $('.landing2').append(game1,game_menu,down1);
+            $('.landing2').append(game1,game_menu);
 
         }
     }
+    click_handlers();
 }
 function generate_schedule_m() {
     var number_of_games = 16;
