@@ -1,0 +1,143 @@
+body{
+    margin: 0;
+}
+header{
+    color:white;
+    background-color: #222222;
+    padding: 3%;
+    padding-bottom: 2px;
+}
+header > h1{
+    margin:0;
+    margin-bottom:20px;
+    font-weight: bold;
+}
+
+header > div{
+    display:inline-block;
+    font-size:16px;
+    font-weight: bold;
+}
+
+.date{
+    float:right;
+}
+
+.landing1{
+    width: 48vw;
+}
+.landing2{
+    width: 48vw;
+}
+.column{
+    display:inline-block;
+    margin: auto;
+}
+
+.game_box{
+    width: 85%;
+    height: 225px;
+    margin: auto;
+    border: 2px solid lightgray;
+    margin-top: 20px;
+}
+.score{
+    width: 70%;
+    height: 57%;
+    margin-left: 5%;
+    margin-top: 3%;
+    border: 2px solid lightgray;
+    display:inline-block;
+}
+.video{
+    margin-top: 10px;
+    width: 50%;
+    height: 50%;
+    margin-left: 10px;
+    border: 2px solid black;
+    display:inline-block;
+}
+
+.news{
+    margin-top: 10px;
+    width: 70%;
+    height: 70px;
+    border: 2px solid black;
+    display:inline-block;
+}
+
+.weather{
+    width: 15%;
+    height: 50px;
+    margin-right: 5%;
+    margin-top: 3%;
+    border: 2px solid lightgray;
+    display:inline-block;
+    float:right
+}
+
+.week{
+    list-style-type:none;
+    font-weight: bold;
+    overflow: auto;
+    white-space: nowrap;
+    margin: auto;
+    margin-top: 2%;
+    width: 600px;
+}
+
+.week > li {
+    margin: 5px;
+    margin-bottom: 10px;
+    display:inline-block;
+}
+
+.game_menu{
+    display: none;
+    text-align: center;
+    background-color: lightgrey;
+    width: 85%;
+    height:250px;
+    margin: auto;
+}
+.down{
+    height:35px;
+    width:100%;
+    background-color: lightgrey;
+    background-image: url(images/arrow-down-01-128.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: auto;
+}
+.up{
+    height:35px;
+    width:100%;
+    background-color: lightgrey;
+    background-image: url(images/up-arrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: auto;
+}
+
+.info {
+    padding-top: 10px;
+    height: 35px;
+    width: 100%;
+    background-color: lightgrey;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+.score_board{
+    height: 80%;
+    border: 2px solid lightgrey;
+    margin: 2px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#current{
+    border-bottom: 2px solid red;
+}
