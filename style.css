@@ -1,6 +1,7 @@
 body{
     margin: 0;
 }
+
 header{
     color:white;
     background-color: #222222;
@@ -22,6 +23,50 @@ header > div{
 .date{
     float:right;
 }
+
+/* navigation */
+
+.wrapper {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.list-wrapper{
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.week{
+    width: 400px;
+    overflow: hidden;
+}
+
+.list-wrapper ul{
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.list-wrapper li{
+    list-style-type: none;
+    display: inline-block;
+    text-align: left;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+a{
+    color: black !important;
+    text-decoration: none !important;
+    border-bottom: none;
+}
+
+
+a:hover {
+    color: black;
+    border-bottom: 3px solid red !important;
+}
+
+/* end of navigation */
 
 .landing1{
     width: 48vw;
@@ -72,6 +117,7 @@ header > div{
     float:right
 }
 
+/*
 .week{
     list-style-type:none;
     font-weight: bold;
@@ -90,6 +136,8 @@ header > div{
 .week > li:hover {
     cursor:pointer;
 }
+
+*/
 
 .game_menu{
     display: none;
