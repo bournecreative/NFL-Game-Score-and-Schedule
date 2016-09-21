@@ -29,10 +29,6 @@ header > div{
 .landing2{
     width: 48vw;
 }
-.column{
-    display:inline-block;
-    margin: auto;
-}
 
 .game_box{
     width: 85%;
@@ -68,7 +64,7 @@ header > div{
 
 .weather{
     width: 15%;
-    height: 50px;
+    height: 125px;
     margin-right: 5%;
     margin-top: 3%;
     border: 2px solid lightgray;
@@ -90,6 +86,9 @@ header > div{
     margin: 5px;
     margin-bottom: 10px;
     display:inline-block;
+}
+.week > li:hover {
+    cursor:pointer;
 }
 
 .game_menu{
@@ -121,7 +120,12 @@ header > div{
     margin: auto;
 }
 
+.down:hover, .up:hover{
+    cursor:pointer;
+}
+
 .info {
+    font-weight: bold;
     padding-top: 10px;
     height: 35px;
     width: 100%;
@@ -131,13 +135,16 @@ header > div{
     margin-top: 10px;
 }
 .score_board{
-    height: 80%;
+    height: 85%;
+    width: 25%;
     border: 2px solid lightgrey;
-    margin: 2px;
+    margin: 10px;
+    margin-left: 20px;
     text-align: center;
     font-weight: bold;
+    display:inline-block;
 }
 
-#current{
+.current{
     border-bottom: 2px solid red;
 }

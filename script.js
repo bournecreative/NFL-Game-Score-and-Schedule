@@ -1,12 +1,25 @@
 var up_down_flag="down";
 var number_of_games = 16;
+var current_week=3;
 
 $(document).ready( function (){
     generate_schedule_d();
     generate_schedule_m();
     click_handlers();
     set_date();
+    gen_weeks(current_week);
 });
+function gen_weeks(val){
+
+    for(i=1; i<=17;i++) {
+        var week = $('<li>').attr('id', 'week' + i).text(' '+" Week "+i+' ');
+        if(val==i){
+            week.addClass('current')
+        }
+        $('.week').append(week);
+    }
+}
+
 function set_date(){
     var date = Date();
     $(".date").append(date);
@@ -45,9 +58,9 @@ function generate_schedule_d() {
             $('#game_menu'+i).append(news1,vid1);
             $('#game'+i).append(weather1,score1,info1,down1);
 
-            var home_team1 = $('<div>').attr('id', 'home_team' + i).addClass('col-sm-3 score_board').text('home team');
-            var game_time1 = $('<div>').attr('id', 'game_time' + i).addClass('col-sm-3 score_board').text('time');
-            var away_team1 = $('<div>').attr('id', 'away_team' + i).addClass('col-sm-3 score_board').text('away team');
+            var home_team1 = $('<div>').attr('id', 'home_team' + i).addClass('score_board').text('home team');
+            var game_time1 = $('<div>').attr('id', 'game_time' + i).addClass('score_board').text('time');
+            var away_team1 = $('<div>').attr('id', 'away_team' + i).addClass('score_board').text('away team');
             $('#score'+i).append(home_team1,game_time1,away_team1)
         }
         else {
@@ -63,9 +76,9 @@ function generate_schedule_d() {
             $('#game_menu'+i).append(news2,vid2);
             $('#game'+i).append(weather2,score2, info2,down2);
 
-            var home_team1 = $('<div>').attr('id', 'home_team' + i).addClass('col-sm-3 score_board');
-            var game_time1 = $('<div>').attr('id', 'game_time' + i).addClass('col-sm-3 score_board');
-            var away_team1 = $('<div>').attr('id', 'away_team' + i).addClass('col-sm-3 score_board');
+            var home_team1 = $('<div>').attr('id', 'home_team' + i).addClass('score_board');
+            var game_time1 = $('<div>').attr('id', 'game_time' + i).addClass('score_board');
+            var away_team1 = $('<div>').attr('id', 'away_team' + i).addClass('score_board');
             $('#score'+i).append(home_team1,game_time1,away_team1)
         }
     }
