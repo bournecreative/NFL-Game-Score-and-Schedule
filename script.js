@@ -10,8 +10,8 @@ var score_box_data = null; // ** Holds all the data from the fantasy website
         var index = str.indexOf("T")
         var time = str.slice(index + 1);
         var hour = Number(time.slice(0,2));
-        var min = time.slice(2)
-        var set = "AM"
+        var min = time.slice(2);
+        var set = "AM";
 
         if (hour === 0 ){
             hour = 12;
@@ -56,6 +56,7 @@ function score_box(season, week){
                 generate_schedule_d();
                 generate_schedule_m();
                 flags();
+
             })
             .fail(function() {
                 alert("error");
@@ -95,7 +96,7 @@ $(document).ready( function (){
     gen_weeks(current_week);
 });
 function gen_weeks(val){
-    
+
     for(i=1; i<=17;i++) {
         var week = $('<li>');
         var week_link = $('<a>', {
@@ -103,13 +104,31 @@ function gen_weeks(val){
             href: '#',
             text: 'week'+i
         });
-        
-       
+
         if(val==i){
             week.addClass('current')
         }
+
         $('.week').append(week);
         $(week).append(week_link);
+
+        (function(){
+            var cookies = i;
+
+            $('#week'+i).click(function(){
+
+                console.log(cookies);
+                current_week = cookies;
+
+                $(".game_box").remove();
+                $(".game_menu").remove();
+                $('a').removeClass('current');
+                $(this).addClass('current');
+                $('li').removeClass('current');
+                score_box(year,current_week);
+            });
+
+        })()
     }
 }
 
