@@ -76,13 +76,21 @@ $(document).ready( function (){
     gen_weeks(current_week);
 });
 function gen_weeks(val){
-
+    
     for(i=1; i<=17;i++) {
-        var week = $('<li>').attr('id', 'week' + i).text(' '+" Week "+i+' ');
+        var week = $('<li>');
+        var week_link = $('<a>', {
+            id: "week" + i,
+            href: '#',
+            text: 'week'+i
+        });
+        
+       
         if(val==i){
             week.addClass('current')
         }
         $('.week').append(week);
+        $(week).append(week_link);
     }
 }
 
