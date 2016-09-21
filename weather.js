@@ -14,14 +14,14 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-
+// AZ
     var az_glendale_weather = new XMLHttpRequest();
     az_glendale_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/AZ/Glendale.json", false);
     az_glendale_weather.send(null);
     var az_glendale_r = JSON.parse(az_glendale_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var az_glendale_info = az_glendale_r.current_observation.display_location.city + "<br>" + az_glendale_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + az_glendale_r.current_observation.wind_dir + ", " + az_glendale_r.current_observation.wind_mph + " mph" + "  <br>" + az_glendale_r.current_observation.weather + "  <p>";
-
+// CA
     var ca_la_weather = new XMLHttpRequest();
     ca_la_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/CA/Los_angeles.json", false);
     ca_la_weather.send(null);
@@ -49,14 +49,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var ca_santa_clara_r = JSON.parse(ca_santa_clara_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var ca_santa_clara_info = ca_santa_clara_r.current_observation.display_location.city + "<br>" + ca_santa_clara_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + ca_santa_clara_r.current_observation.wind_dir + ", " + ca_santa_clara_r.current_observation.wind_mph + " mph" + "  <br>" + ca_santa_clara_r.current_observation.weather + "  <p>";
-
+// CO
     var co_denver_weather = new XMLHttpRequest();
     co_denver_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/CO/Denver.json", false);
     co_denver_weather.send(null);
     var co_denver_r = JSON.parse(co_denver_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var co_denver_info = co_denver_r.current_observation.display_location.city + "<br>" + co_denver_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + co_denver_r.current_observation.wind_dir + ", " + co_denver_r.current_observation.wind_mph + " mph" + "  <br>" + co_denver_r.current_observation.weather + "  <p>";
-
+// FL
     var fl_jacksonville_weather = new XMLHttpRequest();
     fl_jacksonville_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/FL/Jacksonville.json", false);
     fl_jacksonville_weather.send(null);
@@ -77,42 +77,42 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var fl_tampa_r = JSON.parse(fl_tampa_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var fl_tampa_info = fl_tampa_r.current_observation.display_location.city + "<br>" + fl_tampa_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + fl_tampa_r.current_observation.wind_dir + ", " + fl_tampa_r.current_observation.wind_mph + " mph" + "  <br>" + fl_tampa_r.current_observation.weather + "  <p>";
-
+// GA
     var ga_atlanta_weather = new XMLHttpRequest();
     ga_atlanta_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/GA/Atlanta.json", false);
     ga_atlanta_weather.send(null);
     var ga_atlanta_r = JSON.parse(ga_atlanta_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var ga_atlanta_info = ga_atlanta_r.current_observation.display_location.city + "<br>" + ga_atlanta_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + ga_atlanta_r.current_observation.wind_dir + ", " + ga_atlanta_r.current_observation.wind_mph + " mph" + "  <br>" + ga_atlanta_r.current_observation.weather + "  <p>";
-
+// IL
     var il_chicago_weather = new XMLHttpRequest();
     il_chicago_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/IL/Chicago.json", false);
     il_chicago_weather.send(null);
     var il_chicago_r = JSON.parse(il_chicago_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var il_chicago_info = ca_santa_clara_r.current_observation.display_location.city + "<br>" + il_chicago_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + il_chicago_r.current_observation.wind_dir + ", " + il_chicago_r.current_observation.wind_mph + " mph" + "  <br>" + il_chicago_r.current_observation.weather + "  <p>";
-
+// IN
     var in_indianapolis_weather = new XMLHttpRequest();
     in_indianapolis_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/IN/Indianapolis.json", false);
     in_indianapolis_weather.send(null);
     var in_indianapolis_r = JSON.parse(in_indianapolis_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var in_indianapolis_info = in_indianapolis_r.current_observation.display_location.city + "<br>" + in_indianapolis_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + in_indianapolis_r.current_observation.wind_dir + ", " + in_indianapolis_r.current_observation.wind_mph + " mph" + "  <br>" + in_indianapolis_r.current_observation.weather + "  <p>";
-
+// LA
     var la_newOrleans_weather = new XMLHttpRequest();
     la_newOrleans_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/70112.json", false);
     la_newOrleans_weather.send(null);
     var la_newOrleans_r = JSON.parse(la_newOrleans_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var la_newOrleans_info = la_newOrleans_r.current_observation.display_location.city + "<br>" + la_newOrleans_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + la_newOrleans_r.current_observation.wind_dir + ", " + la_newOrleans_r.current_observation.wind_mph + " mph" + "  <br>" + la_newOrleans_r.current_observation.weather + "  <p>";
-
+// MA
     var ma_foxboro_weather = new XMLHttpRequest();
     ma_foxboro_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/MA/Foxboro.json", false);
     ma_foxboro_weather.send(null);
     var ma_foxboro_r = JSON.parse(ma_foxboro_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var ma_foxboro_info = ma_foxboro_r.current_observation.display_location.city + "<br>" + ma_foxboro_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + ma_foxboro_r.current_observation.wind_dir + ", " + ma_foxboro_r.current_observation.wind_mph + " mph" + "  <br>" + ma_foxboro_r.current_observation.weather + "  <p>";
-
+// MD
     var md_baltimore_weather = new XMLHttpRequest();
     md_baltimore_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/MD/Baltimore.json", false);
     md_baltimore_weather.send(null);
@@ -126,42 +126,42 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var md_landover_r = JSON.parse(md_landover_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var md_landover_info = md_landover_r.current_observation.display_location.city + "<br>" + md_landover_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + md_landover_r.current_observation.wind_dir + ", " + md_landover_r.current_observation.wind_mph + " mph" + "  <br>" + md_landover_r.current_observation.weather + "  <p>";
-
+// MI
     var mi_detroit_weather = new XMLHttpRequest();
     mi_detroit_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/MI/Detroit.json", false);
     mi_detroit_weather.send(null);
     var mi_detroit_r = JSON.parse(mi_detroit_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var mi_detroit_info = mi_detroit_r.current_observation.display_location.city + "<br>" + mi_detroit_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + mi_detroit_r.current_observation.wind_dir + ", " + mi_detroit_r.current_observation.wind_mph + " mph" + "  <br>" + mi_detroit_r.current_observation.weather + "  <p>";
-
+// MN
     var mn_minneapolis_weather = new XMLHttpRequest();
     mn_minneapolis_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/MN/Minneapolis.json", false);
     mn_minneapolis_weather.send(null);
     var mn_minneapolis_r = JSON.parse(mn_minneapolis_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var mn_minneapolis_info = mn_minneapolis_r.current_observation.display_location.city + "<br>" + mn_minneapolis_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + mn_minneapolis_r.current_observation.wind_dir + ", " + mn_minneapolis_r.current_observation.wind_mph + " mph" + "  <br>" + mn_minneapolis_r.current_observation.weather + "  <p>";
-
+// MO
     var mo_kc_weather = new XMLHttpRequest();
     mo_kc_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/MO/Kansas_City.json", false);
     mo_kc_weather.send(null);
     var mo_kc_r = JSON.parse(mo_kc_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var mo_kc_info = mo_kc_r.current_observation.display_location.city + "<br>" + mo_kc_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + mo_kc_r.current_observation.wind_dir + ", " + mo_kc_r.current_observation.wind_mph + " mph" + "  <br>" + mo_kc_r.current_observation.weather + "  <p>";
-
+// NC
     var nc_charlotte_weather = new XMLHttpRequest();
     nc_charlotte_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/NC/Charlotte.json", false);
     nc_charlotte_weather.send(null);
     var nc_charlotte_r = JSON.parse(nc_charlotte_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var nc_charlotte_info = nc_charlotte_r.current_observation.display_location.city + "<br>" + nc_charlotte_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + nc_charlotte_r.current_observation.wind_dir + ", " + nc_charlotte_r.current_observation.wind_mph + " mph" + "  <br>" + nc_charlotte_r.current_observation.weather + "  <p>";
-
+// NJ
     var nj_rutherford_weather = new XMLHttpRequest();
     nj_rutherford_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/NJ/Rutherford.json", false);
     nj_rutherford_weather.send(null);
     var nj_rutherford_r = JSON.parse(nj_rutherford_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var nj_rutherford_info = nj_rutherford_r.current_observation.display_location.city + "<br>" + nj_rutherford_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + nj_rutherford_r.current_observation.wind_dir + ", " + nj_rutherford_r.current_observation.wind_mph + " mph" + "  <br>" + nj_rutherford_r.current_observation.weather + "  <p>";
-
+// NY
     var ny_buffalo_weather = new XMLHttpRequest();
     ny_buffalo_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/NY/Buffalo.json", false);
     ny_buffalo_weather.send(null);
@@ -169,6 +169,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     <!-- this is what prints to the screen/page/div -->
     var ny_buffalo_info = ny_buffalo_r.current_observation.display_location.city + "<br>" + ny_buffalo_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + ny_buffalo_r.current_observation.wind_dir + ", " + ny_buffalo_r.current_observation.wind_mph + " mph" + "  <br>" + ny_buffalo_r.current_observation.weather + "  <p>";
 
+    var ny_orchardPark_weather = new XMLHttpRequest();
+    ny_orchardPark_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/NY/orchard-park.json", false);
+    ny_orchardPark_weather.send(null);
+    var ny_orchardPark_r = JSON.parse(ny_orchardPark_weather.response);
+    <!-- this is what prints to the screen/page/div -->
+    var ny_orchardPark_info = ny_orchardPark_r.current_observation.display_location.city + "<br>" + ny_orchardPark_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + ny_orchardPark_r.current_observation.wind_dir + ", " + ny_orchardPark_r.current_observation.wind_mph + " mph" + "  <br>" + ny_orchardPark_r.current_observation.weather + "  <p>";
+// OH
     var oh_cincinnati_weather = new XMLHttpRequest();
     oh_cincinnati_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/OH/Cincinnati.json", false);
     oh_cincinnati_weather.send(null);
@@ -182,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var oh_cleveland_r = JSON.parse(oh_cleveland_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var oh_cleveland_info = oh_cleveland_r.current_observation.display_location.city + "<br>" + oh_cleveland_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + oh_cleveland_r.current_observation.wind_dir + ", " + oh_cleveland_r.current_observation.wind_mph + " mph" + "  <br>" + oh_cleveland_r.current_observation.weather + "  <p>";
-
+// PA
     var pa_phila_weather = new XMLHttpRequest();
     pa_phila_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/PA/Philadelphia.json", false);
     pa_phila_weather.send(null);
@@ -196,14 +203,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var pa_pitts_r = JSON.parse(pa_pitts_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var pa_pitts_info = pa_pitts_r.current_observation.display_location.city + "<br>" + pa_pitts_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + pa_pitts_r.current_observation.wind_dir + ", " + pa_pitts_r.current_observation.wind_mph + " mph" + "  <br>" + pa_pitts_r.current_observation.weather + "  <p>";
-
+// TN
     var tn_nashville_weather = new XMLHttpRequest();
     tn_nashville_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/TN/Nashville.json", false);
     tn_nashville_weather.send(null);
     var tn_nashville_r = JSON.parse(tn_nashville_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var tn_nashville_info = tn_nashville_r.current_observation.display_location.city + "<br>" + tn_nashville_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + tn_nashville_r.current_observation.wind_dir + ", " + tn_nashville_r.current_observation.wind_mph + " mph" + "  <br>" + tn_nashville_r.current_observation.weather + "  <p>";
-
+// TX
     var tx_arlington_weather = new XMLHttpRequest();
     tx_arlington_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/TX/Arlington.json", false);
     tx_arlington_weather.send(null);
@@ -224,28 +231,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var tx_houston_r = JSON.parse(tx_houston_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var tx_houston_info = tx_houston_r.current_observation.display_location.city + "<br>" + tx_houston_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + tx_houston_r.current_observation.wind_dir + ", " + tx_houston_r.current_observation.wind_mph + " mph" + "  <br>" + tx_houston_r.current_observation.weather + "  <p>";
-
+// WA
     var wa_seattle_weather = new XMLHttpRequest();
     wa_seattle_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/WA/Seattle.json", false);
     wa_seattle_weather.send(null);
     var wa_seattle_r = JSON.parse(wa_seattle_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var wa_seattle_info = wa_seattle_r.current_observation.display_location.city + "<br>" + wa_seattle_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + wa_seattle_r.current_observation.wind_dir + ", " + wa_seattle_r.current_observation.wind_mph + " mph" + "  <br>" + wa_seattle_r.current_observation.weather + "  <p>";
-
+// WI
     var wi_greenbay_weather = new XMLHttpRequest();
     wi_greenbay_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/WI/Green_Bay.json", false);
     wi_greenbay_weather.send(null);
     var wi_greenbay_r = JSON.parse(wi_greenbay_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var wi_greenbay_info = wi_greenbay_r.current_observation.display_location.city + "<br>" + wi_greenbay_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + wi_greenbay_r.current_observation.wind_dir + ", " + wi_greenbay_r.current_observation.wind_mph + " mph" + "  <br>" + wi_greenbay_r.current_observation.weather + "  <p>";
-
+// Mexico
     var mx_mxc_weather = new XMLHttpRequest();
     mx_mxc_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/uk/london.json", false);
     mx_mxc_weather.send(null);
     var mx_mxc_r = JSON.parse(mx_mxc_weather.response);
     <!-- this is what prints to the screen/page/div -->
     var mx_mxc_info = mx_mxc_r.current_observation.display_location.city + "<br>" + mx_mxc_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + mx_mxc_r.current_observation.wind_dir + ", " + mx_mxc_r.current_observation.wind_mph + " mph" + "  <br>" + mx_mxc_r.current_observation.weather + "  <p>";
-
+// UK
     var uk_london_weather = new XMLHttpRequest();
     uk_london_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/uk/london.json", false);
     uk_london_weather.send(null);
@@ -282,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     getWeather("nc_charlotte_info", nc_charlotte_info);
     getWeather("nj_rutherford_info", nj_rutherford_info);
     getWeather("ny_buffalo_info", ny_buffalo_info);
+    getWeather("ny_orchardPark_info", ny_orchardPark_info);
     getWeather("oh_cincinnati_info", oh_cincinnati_info);
     getWeather("oh_cleveland_info", oh_cleveland_info);
     getWeather("pa_phila_info", pa_phila_info);
