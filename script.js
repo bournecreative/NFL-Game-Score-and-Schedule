@@ -57,7 +57,7 @@ function score_box(season, week){
 
             })
             .fail(function() {
-                alert("error");
+                alert("API key ran out contact Lance ASAP");
             });
     });
 }
