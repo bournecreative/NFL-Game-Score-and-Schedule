@@ -117,7 +117,7 @@ function get_twitter_text(team) {
       screen_name: team_name
     },
     method: "POST",
-    url: "http://s-apis.learningfuze.com/hackathon/twitter/index.php",
+    url: "//s-apis.learningfuze.com/hackathon/twitter/index.php",
     success: function (response) {
       
       //this represents the entire twitter object
