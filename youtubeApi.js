@@ -149,7 +149,7 @@ function ajaxYoutube(team, homeAway, data) {
             console.log("url: ", url);
             //video_id = $('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
             /*$('body').append(video_id);*/
-            var youVideo = $('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
+            var youVideo = $('<iframe frameborder="0">').attr('src', url).css('width', "100%", 'height', '100%');
             //console.log(youVideo);
             if(homeAway == 1){
                 $("#1vid" + data).append(youVideo);
