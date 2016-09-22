@@ -118,7 +118,7 @@ function ajaxYoutube(team, homeAway, data) {
 
 
 
-        var Data = {q: team_name, maxResults: 1, type: 'video', detailLevel: 'verbose'};
+        var Data = {q: "nfl "+team_name+" mixtape", maxResults: 1, type: 'video', detailLevel: 'verbose'};
     $.ajax({
         dataType: 'json',
         method: 'post',
@@ -149,12 +149,12 @@ function ajaxYoutube(team, homeAway, data) {
             console.log("url: ", url);
             //video_id = $('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
             /*$('body').append(video_id);*/
-            var youVideo = $('iframe').attr('src', url);
+            var youVideo = $('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
             //console.log(youVideo);
             if(homeAway == 1){
-                $("#1vid" + data).attr('src', url).css('width', "100%", 'height', '100%');
+                $("#1vid" + data).append(youVideo);
             }else{
-                $("#2vid" + data).attr('src', url).css('width', "100%", 'height', '100%');
+                $("#2vid" + data).append(youVideo);
             }
         }
     })

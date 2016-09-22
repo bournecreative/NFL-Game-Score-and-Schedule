@@ -217,8 +217,8 @@ function generate_schedule_d() {
 
         //twitter and youtube feed container
         //$('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
-        var vid1 = $('<iframe>').attr('id', '1vid' + i).addClass('video col-sm-3');
-        var vid2 = $('<iframe>').attr('id', '2vid' + i).addClass('video col-sm-3');
+        var vid1 = $('<div>').attr('id', '1vid' + i).addClass('video col-sm-3');
+        var vid2 = $('<div>').attr('id', '2vid' + i).addClass('video col-sm-3');
         var news1 = $('<div>').attr('id', '1news' + i).addClass('news col-sm-6');
         var news2 = $('<div>').attr('id', '2news' + i).addClass('news col-sm-6');
 
