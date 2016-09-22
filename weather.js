@@ -12,7 +12,12 @@
 
  */
 
-document.addEventListener("DOMContentLoaded", function (event) {
+function cake(){
+    console.log("hello world")
+}
+
+
+// document.addEventListener("DOMContentLoaded", function (event) {
 
 // AZ
     var az_glendale_weather = new XMLHttpRequest();
@@ -266,43 +271,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById(id).innerHTML = res;
     }
 
-    /*Function calls */
-    getWeather("az_glendale_info", az_glendale_info);
-    getWeather("ca_la_info", ca_la_info);
-    getWeather("ca_oakland_info", ca_oakland_info);
-    getWeather("ca_sanDiego_info", ca_sanDiego_info);
-    getWeather("ca_santa_clara_info", ca_santa_clara_info);
-    getWeather("co_denver_info", co_denver_info);
-    getWeather("fl_jacksonville_info", fl_jacksonville_info);
-    getWeather("fl_miami_info", fl_miami_info);
-    getWeather("fl_tampa_info", fl_tampa_info);
-    getWeather("ga_atlanta_info", ga_atlanta_info);
-    getWeather("il_chicago_info", il_chicago_info);
-    getWeather("in_indianapolis_info", in_indianapolis_info);
-    getWeather("la_newOrleans_info", la_newOrleans_info);
-    getWeather("ma_foxboro_info", ma_foxboro_info);
-    getWeather("md_baltimore_info", md_baltimore_info);
-    getWeather("md_landover_info", md_landover_info);
-    getWeather("mi_detroit_info", mi_detroit_info);
-    getWeather("mn_minneapolis_info", mn_minneapolis_info);
-    getWeather("mo_kc_info", mo_kc_info);
-    getWeather("nc_charlotte_info", nc_charlotte_info);
-    getWeather("nj_rutherford_info", nj_rutherford_info);
-    getWeather("ny_buffalo_info", ny_buffalo_info);
-    getWeather("ny_orchardPark_info", ny_orchardPark_info);
-    getWeather("oh_cincinnati_info", oh_cincinnati_info);
-    getWeather("oh_cleveland_info", oh_cleveland_info);
-    getWeather("pa_phila_info", pa_phila_info);
-    getWeather("pa_pitts_info", pa_pitts_info);
-    getWeather("tn_nashville_info", tn_nashville_info);
-    getWeather("tx_arlington_info", tx_arlington_info);
-    getWeather("tx_dallas_info", tx_dallas_info);
-    getWeather("tx_houston_info", tx_houston_info);
-    getWeather("wa_seattle_info", wa_seattle_info);
-    getWeather("wi_greenbay_info", wi_greenbay_info);
 
-    getWeather("mx_mxc_info", mx_mxc_info);
-    getWeather("uk_london_info", uk_london_info);
+
+    /*Function calls */
+
 
     /* end function calls */
-});
+// });

@@ -52,7 +52,7 @@ function score_box(season, week){
             .done(function(data) {
           //             alert("success");
                 score_box_data = data;
-                display_data(season, week);
+                // display_data(season, week);
                 generate_schedule_d();
                 generate_schedule_m();
                 flags();
@@ -149,7 +149,41 @@ function click_handlers (){
         console.log("home team: "+home_team);
         console.log("away team: "+away_team);
         $('#game_menu'+data).slideToggle();
+        getWeather("ARI", az_glendale_info);
+        getWeather("LA", ca_la_info);
+        getWeather("OAK", ca_oakland_info);
+        getWeather("SD", ca_sanDiego_info);
+        getWeather("SF", ca_santa_clara_info);
+        getWeather("DEN", co_denver_info);
+        getWeather("JAX", fl_jacksonville_info);
+        getWeather("MIA", fl_miami_info);
+        getWeather("TB", fl_tampa_info);
+        getWeather("ATL", ga_atlanta_info);
+        getWeather("CHI", il_chicago_info);
+        getWeather("IND", in_indianapolis_info);
+        getWeather("NO", la_newOrleans_info);
+        getWeather("NE", ma_foxboro_info);
+        getWeather("BAL", md_baltimore_info);
+        getWeather("WAS", md_landover_info);
+        getWeather("DET", mi_detroit_info);
+        getWeather("MIN", mn_minneapolis_info);
+        getWeather("KC", mo_kc_info);
+        getWeather("CAR", nc_charlotte_info);
+        getWeather("NYG", nj_rutherford_info);
+        getWeather("BUF", ny_buffalo_info);
+        getWeather("BUF", ny_orchardPark_info);
+        getWeather("CIN", oh_cincinnati_info);
+        getWeather("CLE", oh_cleveland_info);
+        getWeather("PHI", pa_phila_info);
+        getWeather("PIT", pa_pitts_info);
+        getWeather("NAS", tn_nashville_info);
+        getWeather("DAL", tx_arlington_info);
+        getWeather("HOU", tx_houston_info);
+        getWeather("SEA", wa_seattle_info);
+        getWeather("GB", wi_greenbay_info);
 
+        getWeather("MX", mx_mxc_info);
+        getWeather("UK", uk_london_info);
 
         if(up_down_flag[data] == "down") {
             $('#down'+data).removeClass().addClass('up');
@@ -180,7 +214,7 @@ function generate_schedule_d() {
         var score1 = $('<div>').attr('id', 'score' + i).addClass('score');
         var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video').text('video stuffs here');
         var news1 = $('<div>').attr('id', 'news' + i).addClass('news').text('twitter stuffs');
-        var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').text('weather stuffs');
+        var weather1 = $('<span>').attr('id', home_team).addClass('weather');
         var game_menu = $('<div>').attr('id', 'game_menu' + i).addClass('game_menu');
         var down1 = $('<div>').addClass('down').data('position',i).data('away_team',away_team).data('home_team',home_team).attr('id', 'down' + i);
         var info1=$('<div>').addClass('info').text('MORE NEWS').attr('id', 'info' + i);
