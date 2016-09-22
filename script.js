@@ -1,4 +1,6 @@
 var up_down_flag=[];
+var video_flag1=[];
+var video_flag2=[];
 var number_of_games = null; //array length for number of games
 var current_week = 2;
 var year = 2016;
@@ -65,6 +67,8 @@ function score_box(season, week){
 function flags(){
     for(i=0;i<=20;i++){ //may need to change length if more than 42 nfl games exist at some point...
         up_down_flag[i]= "down";
+        video_flag1[i]= "down";
+        video_flag2[i]= "down";
     }
 }
 
@@ -151,12 +155,18 @@ function click_handlers (){
 
         //opens and closes news menu
         $('#game_menu'+data).slideToggle();
+//cant load twitter and video more than once
+        if(video_flag1[data] == "down") {
+            get_twitter_text(home_team, 1, data);
+            ajaxYoutube(home_team,1,data);
+            video_flag1[data]="up";
+        }
 
-        get_twitter_text(home_team,1,data);
-        get_twitter_text(away_team,2,data);
-        ajaxYoutube(home_team,1,data);
-        ajaxYoutube(away_team,2,data);
-
+        if(video_flag2[data] == "down") {
+            get_twitter_text(away_team,2,data);
+            ajaxYoutube(away_team,2,data);
+            video_flag2[data]="up";
+        }
         // makes menu buttons display correct direction arrow and more/less news, saves position states in array of flag variables
         if(up_down_flag[data] == "down") {
             $('#down'+data).removeClass().addClass('up');
