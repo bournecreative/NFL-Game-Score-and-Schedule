@@ -102,7 +102,7 @@ function gen_weeks(val){
         var week_link = $('<a>', {
             id: "week" + i,
             href: '#',
-            text: 'week'+i
+            text: 'Week '+i
         });
 
         if(val==i){
@@ -144,16 +144,21 @@ function click_handlers (){
     $('.down').click(function (){
         console.log("click!");
         var data = $(this).data('position');
+        var home_team = $(this).data('home_team');
+        var away_team = $(this).data('away_team');
+        console.log("home team: "+home_team);
+        console.log("away team: "+away_team);
         $('#game_menu'+data).slideToggle();
+
 
         if(up_down_flag[data] == "down") {
             $('#down'+data).removeClass().addClass('up');
-            $('#info'+data).text('LESS NEWS')
+            $('#info'+data).text('LESS NEWS');
             up_down_flag[data]="up";
         }
         else{
             $('#down'+data).removeClass().addClass('down');
-            $('#info'+data).text('MORE NEWS')
+            $('#info'+data).text('MORE NEWS');
             up_down_flag[data]="down";
         }
     })
@@ -177,7 +182,7 @@ function generate_schedule_d() {
         var news1 = $('<div>').attr('id', 'news' + i).addClass('news').text('twitter stuffs');
         var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').text('weather stuffs');
         var game_menu = $('<div>').attr('id', 'game_menu' + i).addClass('game_menu');
-        var down1 = $('<div>').addClass('down').data('position',i).attr('id', 'down' + i);
+        var down1 = $('<div>').addClass('down').data('position',i).data('away_team',away_team).data('home_team',home_team).attr('id', 'down' + i);
         var info1=$('<div>').addClass('info').text('MORE NEWS').attr('id', 'info' + i);
         $('.landing1').append(game1,game_menu);
         $('#game_menu'+i).append(news1,vid1);
