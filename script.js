@@ -3,7 +3,7 @@ var number_of_games = null; //array length for number of games
 var current_week = 2;
 var year = 2016;
 var score_box_data = null; // ** Holds all the data from the fantasy website
-
+var team_name = null;
 
     function format_time(timeX) {
         var str = timeX;
@@ -106,7 +106,7 @@ function gen_weeks(val){
         });
 
         if(val==i){
-            week.addClass('current')
+            week_link.addClass('current')
         }
 
         $('.week').append(week);
@@ -127,7 +127,6 @@ function gen_weeks(val){
                 $('li').removeClass('current');
                 score_box(year,current_week);
             });
-
         })()
     }
 }
@@ -152,6 +151,10 @@ function click_handlers (){
 
         //opens and closes news menu
         $('#game_menu'+data).slideToggle();
+
+        get_twitter_text(home_team,1,data);
+        get_twitter_text(away_team,2,data);
+
 
         // makes menu buttons display correct direction arrow and more/less news, saves position states in array of flag variables
         if(up_down_flag[data] == "down") {
@@ -199,7 +202,7 @@ function generate_schedule_d() {
         }
         //adding weather information from football api
         if(forecast_description != null){
-            var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').html(forecast_description + "<br>" + "High: " + forecast_temp_high + "&#8457" + "<br>" + "Low: " + forecast_temp_low + "&#8457" + "<br>" + "Wind Speed:" + forcast_wind + "<br>");
+            var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').html(forecast_description + "<br>" + "High: " + forecast_temp_high + "&#8457" + "<br>" + "Low: " + forecast_temp_low + "&#8457" + "<br>" + "Wind Speed: " + forcast_wind +"MPH"+ "<br>");
         }
         else{
             var weather1 = $('<div>').text('Weather is not yet available').addClass('weather');
@@ -212,10 +215,10 @@ function generate_schedule_d() {
         var down1 = $('<div>').addClass('down').data('position',i).data('away_team',away_team).data('home_team',home_team).attr('id', 'down' + i);
 
         //twitter and youtube feed container
-        var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-4').text('video stuffs here');
-        var vid2 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-4').text('video stuffs here');
-        var news1 = $('<div>').attr('id', 'news' + i).addClass('news col-sm-7').text('twitter stuffs');
-        var news2 = $('<div>').attr('id', 'news' + i).addClass('news col-sm-7').text('twitter stuffs');
+        var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-3');
+        var vid2 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-3');
+        var news1 = $('<div>').attr('id', '1news' + i).addClass('news col-sm-6');
+        var news2 = $('<div>').attr('id', '2news' + i).addClass('news col-sm-6');
 
         //scores and weather
         var score1 = $('<div>').attr('id', 'score' + i).addClass('score');

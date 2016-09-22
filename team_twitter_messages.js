@@ -1,7 +1,6 @@
-get_twitter_text("OAK");
-
-function get_twitter_text(team) {
-
+function get_twitter_text(team,home_away,data) {
+  var tweet = null;
+console.log("your team is:"+team)
   var nfl_twitter_handles = ["Ravens","Bengals", "Browns", "steelers", "ChicagoBears",
     "Lions", "packers", "Vikings", "HoustonTexans", "Colts", "Jaguars", "Titans", "AtlantaFalcons",
     "Panthers", "Saints", "TBBuccaneers", "buffalobills", "MiamiDolphins", "nyjets", "dallascowboys",
@@ -108,32 +107,38 @@ function get_twitter_text(team) {
     default:
       alert("An issue occurred");
   }
+
+  $.ajax({
+    dataType: 'json',
+    data: {
+      action: "user",
+      screen_name: team_name
+    },
+    method: "POST",
+    url: "http://s-apis.learningfuze.com/hackathon/twitter/index.php",
+    success: function (response) {
+
+      //   NEED TO FINISH creating variable for this to work
+
+      //this represents the entire twitter object
+      var tweet_block = response;
+      //this represents the team name
+      team_name = (tweet_block.info.name);
+      //this represents the team tweet
+      var latest_tweet = (tweet_block.info.status.text);
+      //var latest_tweet = (tweet_block.info.description);
+      tweet = team_name+ ": " +latest_tweet
+      //this is just a text
+      //get tweet message : console.log(tweet_block.info.description);
+      console.log("tweet is"+tweet);
+
+      if(home_away == 1) {
+        $('#1news' + data).append(tweet)
+      }
+      else{
+        $('#2news' + data).append(tweet)
+      }
+    }
+  });
 }
 
-
-$.ajax({
-  dataType: 'json',
-  data: {
-    action: "user",
-    screen_name: team_name
-  },
-  method: "POST",
-  url: "http://s-apis.learningfuze.com/hackathon/twitter/index.php",
-  success: function (response) {
-    
-    //   NEED TO FINISH creating variable for this to work
-    var twitter_text_msg = "news"+i;
-    
-    //this represents the entire twitter object
-    var tweet_block = response;
-    //this represents the team name
-    var team_name = (tweet_block.info.name);
-    //this represents the team tweet
-    var latest_tweet = (tweet_block.info.status.text);
-    //var latest_tweet = (tweet_block.info.description);
-    $(twitter_text_msg).text(team_name + ": " + latest_tweet);
-    //this is just a text
-    console.log(tweet_block);
-    //get tweet message : console.log(tweet_block.info.description);
-  }
-});
