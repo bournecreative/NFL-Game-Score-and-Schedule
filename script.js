@@ -139,7 +139,7 @@ function set_date(){
     $('.date').append(total_date);
 }
 
-//applys click handlers
+//--------------------------------------------------------------------------applys click handlers
 function click_handlers (){
     $('.down').click(function (){
         console.log("click!");
@@ -154,7 +154,8 @@ function click_handlers (){
 
         get_twitter_text(home_team,1,data);
         get_twitter_text(away_team,2,data);
-
+        ajaxYoutube(home_team,1,data);
+        ajaxYoutube(away_team,2,data);
 
         // makes menu buttons display correct direction arrow and more/less news, saves position states in array of flag variables
         if(up_down_flag[data] == "down") {
@@ -215,8 +216,9 @@ function generate_schedule_d() {
         var down1 = $('<div>').addClass('down').data('position',i).data('away_team',away_team).data('home_team',home_team).attr('id', 'down' + i);
 
         //twitter and youtube feed container
-        var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-3');
-        var vid2 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-3');
+        //$('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
+        var vid1 = $('<iframe>').attr('id', '1vid' + i).addClass('video col-sm-3');
+        var vid2 = $('<iframe>').attr('id', '2vid' + i).addClass('video col-sm-3');
         var news1 = $('<div>').attr('id', '1news' + i).addClass('news col-sm-6');
         var news2 = $('<div>').attr('id', '2news' + i).addClass('news col-sm-6');
 
