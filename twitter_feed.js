@@ -109,7 +109,6 @@ function get_twitter_text(team) {
       alert("An issue occurred");
     }
   }
-  
 
   $.ajax({
     dataType: 'json',
@@ -121,19 +120,22 @@ function get_twitter_text(team) {
     url: "http://s-apis.learningfuze.com/hackathon/twitter/index.php",
     success: function (response) {
       
-      //   NEED TO FINISH creating variable for this to work
-      var twitter_text_msg = "news"+i;
-      
       //this represents the entire twitter object
       var tweet_block = response;
+      
       //this represents the team name
       var team_name = (tweet_block.info.name);
+      
       //this represents the team tweet
       var latest_tweet = (tweet_block.info.status.text);
-      //var latest_tweet = (tweet_block.info.description);
-      $(twitter_text_msg).text(team_name + ": " + latest_tweet);
-      //this is just a text
+  
+      //this represents the team text description
+      var latest_text = (tweet_block.info.description);
+      
+      $('.twitter_text1').text(team_name);
+      $('.twitter_text2').text(latest_tweet);
+      $('.twitter_text3').text(latest_text);
+    
       console.log(tweet_block);
-      //get tweet message : console.log(tweet_block.info.description);
     }
   });
