@@ -8,6 +8,7 @@ function ajaxYoutube(team, homeAway, data) {
 
     var team_name = null;
     console.log("your team is:"+team)
+//converts team name data to twitter names which is used in youtube search to get videos
     var nfl_twitter_handles = ["Ravens","Bengals", "Browns", "steelers", "ChicagoBears",
         "Lions", "packers", "Vikings", "HoustonTexans", "Colts", "Jaguars", "Titans", "AtlantaFalcons",
         "Panthers", "Saints", "TBBuccaneers", "buffalobills", "MiamiDolphins", "nyjets", "dallascowboys",
@@ -135,7 +136,7 @@ function ajaxYoutube(team, homeAway, data) {
                 if (obj_snippet != "NFL"){
                     id_array.push(i);
                 }
-
+//takes twitter names and gets us url of videos
             }
             //console.log(id_array);
             var array_length = id_array.length;
@@ -149,6 +150,8 @@ function ajaxYoutube(team, homeAway, data) {
             console.log("url: ", url);
             //video_id = $('<iframe>').attr('src', url).css('width', "100%", 'height', '100%');
             /*$('body').append(video_id);*/
+
+//adds iframe to correct location with correct videos
             var youVideo = $('<iframe frameborder="0">').attr('src', url).css('width', "100%", 'height', '100%');
             //console.log(youVideo);
             if(homeAway == 1){

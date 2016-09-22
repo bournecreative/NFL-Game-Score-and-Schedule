@@ -1,6 +1,6 @@
 function get_twitter_text(team,home_away,data) {
   var tweet = null;
-console.log("your team is:"+team)
+//converts name data to twitter handles
   var nfl_twitter_handles = ["Ravens","Bengals", "Browns", "steelers", "ChicagoBears",
     "Lions", "packers", "Vikings", "HoustonTexans", "Colts", "Jaguars", "Titans", "AtlantaFalcons",
     "Panthers", "Saints", "TBBuccaneers", "buffalobills", "MiamiDolphins", "nyjets", "dallascowboys",
@@ -131,7 +131,7 @@ console.log("your team is:"+team)
       //this is just a text
       //get tweet message : console.log(tweet_block.info.description);
       console.log("tweet is"+tweet);
-
+//appends tweets to correct locations
       if(home_away == 1) {
         $('#1news' + data).append(tweet)
       }

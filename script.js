@@ -25,7 +25,6 @@ var team_name = null;
         var year = date.slice(0,4);
         var month = date.slice(5,7);
         var day = date.slice(8);
-        console.log(day);
         return hour + min + " " +set + " "+ month + "/" + day + "/" + year;
     }
 
@@ -34,7 +33,6 @@ function score_box(season, week){
     var data_url = "https://api.fantasydata.net/v3/nfl/stats/JSON/BoxScores/"; //2016/2?
     data_url += season + "/" + week + "?";
 
-    console.log(data_url);
     $(function() {
         var params = {
             // Request parameters
@@ -71,7 +69,7 @@ function flags(){
         video_flag2[i]= "down";
     }
 }
-
+//used to check data from fantasy football ajax call
 function display_data(game_season, game_week){
     console.log("Season: " + game_season + " | Week: " + game_week);
     console.log("-------------------------");
@@ -120,10 +118,7 @@ function gen_weeks(val){
             var cookies = i;
 
             $('#week'+i).click(function(){
-
-                console.log(cookies);
                 current_week = cookies;
-
                 $(".game_box").remove();
                 $(".game_menu").remove();
                 $('a').removeClass('current');
@@ -143,15 +138,12 @@ function set_date(){
     $('.date').append(total_date);
 }
 
-//--------------------------------------------------------------------------applys click handlers
+//--------------------------------------------------------------------------applies click handlers
 function click_handlers (){
     $('.down').click(function (){
-        console.log("click!");
         var data = $(this).data('position');
         var home_team = $(this).data('home_team');
         var away_team = $(this).data('away_team');
-        console.log("home team: "+home_team);
-        console.log("away team: "+away_team);
 
         //opens and closes news menu
         $('#game_menu'+data).slideToggle();
