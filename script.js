@@ -1,6 +1,6 @@
 var up_down_flag=[];
 var number_of_games = null; //array length for number of games
-var current_week = 5;
+var current_week = 2;
 var year = 2016;
 var score_box_data = null; // ** Holds all the data from the fantasy website
 
@@ -52,7 +52,7 @@ function score_box(season, week){
             .done(function(data) {
           //             alert("success");
                 score_box_data = data;
-                display_data(season, week);
+                //display_data(season, week);
                 generate_schedule_d();
                 generate_schedule_m();
                 flags();
@@ -174,13 +174,16 @@ function generate_schedule_d() {
         var away_score = general_game_data.AwayScore;
         var quarter = general_game_data.QuarterDescription;
         var date = format_time(general_game_data.Date);
-
+        var forecast_description = general_game_data.ForecastDescription;
+        var forecast_temp_high = general_game_data.ForecastTempHigh;
+        var forecast_temp_low = general_game_data.ForecastTempLow;
+        var forcast_wind = general_game_data.ForecastWindSpeed;
 
         var game1 = $('<div>').attr('id', 'game' + i).addClass('game_box');
         var score1 = $('<div>').attr('id', 'score' + i).addClass('score');
         var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video').text('video stuffs here');
         var news1 = $('<div>').attr('id', 'news' + i).addClass('news').text('twitter stuffs');
-        var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').text('weather stuffs');
+        var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').html(forecast_description + "<br>" + "High: " + forecast_temp_high + "&#8457" + "<br>" + "Low: " + forecast_temp_low + "&#8457" + "<br>" + "Wind Speed:" + forcast_wind + "<br>");
         var game_menu = $('<div>').attr('id', 'game_menu' + i).addClass('game_menu');
         var down1 = $('<div>').addClass('down').data('position',i).data('away_team',away_team).data('home_team',home_team).attr('id', 'down' + i);
         var info1=$('<div>').addClass('info').text('MORE NEWS').attr('id', 'info' + i);
