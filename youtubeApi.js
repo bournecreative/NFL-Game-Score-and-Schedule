@@ -123,7 +123,7 @@ function ajaxYoutube(team, homeAway, data) {
     $.ajax({
         dataType: 'json',
         method: 'post',
-        url: "http://s-apis.learningfuze.com/hackathon/youtube/search.php",
+        url: "//s-apis.learningfuze.com/hackathon/youtube/search.php",
         data: Data,
         success: function (response) {
             //console.log("Success call ajaxYoutube", response);
