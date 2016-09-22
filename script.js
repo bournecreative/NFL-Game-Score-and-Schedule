@@ -75,6 +75,7 @@ $(document).ready( function (){
     set_date();
     gen_weeks(current_week);
 });
+
 function gen_weeks(val){
     
     for(i=1; i<=17;i++) {
@@ -85,7 +86,6 @@ function gen_weeks(val){
             text: 'week'+i
         });
         
-       
         if(val==i){
             week.addClass('current')
         }
