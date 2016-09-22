@@ -119,7 +119,7 @@ function ajaxYoutube(team, homeAway, data) {
 
 
 
-        var Data = {q: "nfl "+team_name+" mixtape", maxResults: 1, type: 'video', detailLevel: 'verbose'};
+        var Data = {q: "nfl "+team_name+" madden mixtape", maxResults: 1, type: 'video', detailLevel: 'verbose'};
     $.ajax({
         dataType: 'json',
         method: 'post',
