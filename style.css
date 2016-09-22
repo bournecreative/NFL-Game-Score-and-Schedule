@@ -37,13 +37,17 @@ header > div{
 }
 
 .week{
-    width: 400px;
+    text-align: center;
+    width: 500px;
     overflow: hidden;
+    vertical-align: middle;
+    padding: 0;
 }
 
 .list-wrapper ul{
     display: inline-block;
     white-space: nowrap;
+    padding: 0;
 }
 
 .list-wrapper li{
@@ -55,18 +59,25 @@ header > div{
 }
 
 a{
+    font-size: 1.5em;
     margin-left: 5px;
     color: black !important;
     text-decoration: none !important;
     border-bottom: none;
 }
 
-
 a:hover {
     color: #D50A0A!important;
     font-weight: bolder;
 }
 
+.hover-left{
+    padding: 0;
+}
+
+.hover-right{
+    padding: 0;
+}
 /* end of navigation */
 
 .landing1{
