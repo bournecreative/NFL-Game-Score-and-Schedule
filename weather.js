@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var ny_buffalo_info = ny_buffalo_r.current_observation.display_location.city + "<br>" + ny_buffalo_r.current_observation.temp_f + "&#8457  <br>" + "Wind: " + ny_buffalo_r.current_observation.wind_dir + ", " + ny_buffalo_r.current_observation.wind_mph + " mph" + "  <br>" + ny_buffalo_r.current_observation.weather + "  <p>";
 
     var ny_orchardPark_weather = new XMLHttpRequest();
-    ny_orchardPark_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/NY/orchard-park.json", false);
+    ny_orchardPark_weather.open("GET", "http://api.wunderground.com/api/6b9c104e07787d1a/conditions/q/14127.json", false);
     ny_orchardPark_weather.send(null);
     var ny_orchardPark_r = JSON.parse(ny_orchardPark_weather.response);
     <!-- this is what prints to the screen/page/div -->
