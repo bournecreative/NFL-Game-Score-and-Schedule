@@ -95,10 +95,12 @@ a:hover {
     display:flex;
 }
 .video{
-    border: 2px solid black;
+    border: 2px solid #e52d27;
+    background-color: white;
     margin: 10px;
     height:40%;
     margin-left: 5%;
+    border-radius: 10px;
 }
 
 .news{
@@ -106,6 +108,16 @@ a:hover {
     margin: 10px;
     height: 40%;
     margin-left: 5%;
+    background-color: white;
+    background-image: url(images/twitter.png) ;
+    border-color: #1DA1F2 ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size:.85vw;
+    font-weight: bold;
+    background-position: center;
+    text-align: left;
+    border-radius: 10px;
 }
 
 .weather{
