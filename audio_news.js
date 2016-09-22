@@ -1,28 +1,60 @@
 /**
  * Created by OF on 9/21/16.
  */
-function ajaxYoutube(teams_names) {
-    var Data = {q: teams_names, maxResults: 15, type: 'video', detailLevel: 'verbose'};
-    $.ajax({
-        dataType: 'json',
-        method: 'post',
-        url: "http://api.espn.com/v1/audio/stations/4359221",
-        data: Data,
-        success: function (response) {
-            console.log("Success call ajaxYoutube", response);
-            var random = Math.floor((Math.random() * 14) + 1);
-            console.log(random);
-            var video_id = response.video[random].id;
-            console.log('result', video_id);
-            var url = 'https://www.youtube.com/embed/' + video_id;
-            // video_id = $('<video>').addClass("video").attr('src', url).css('width', "320", 'height', '240');
-            // $('body').append(video_id);
-            var youVideo = $('iframe').attr('src', url);
-            console.log(youVideo);
 
+var typeOfSong = "nfl"
+var songArray = [];
+
+/** Listen music using spotify API. */
+
+function listenAjax() {
+    console.log("running");
+    //calls query with music as only criteria first
+    $.ajax({
+        url: 'https://api.spotify.com/v1/search',
+        data: {
+            q: typeOfSong,
+            type: 'track'
+        },
+
+        success: function (response) {
+            console.log('spotify', response);
+
+            for (i = 0; i < response.tracks.items.length; i++) {
+
+                var tracks = response.tracks.items[i];
+
+                var song = {
+                    audio: tracks.preview_url
+                };
+                songArray.push(song);
+                console.log(songArray[0]);
+            }
+            $('#audio').attr('src', songArray[0].audio);
+            playPause();
         }
-    })
+
+    });
 }
 
-// <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-//     <script src="youtubeApi.js"></script>
+/** Play or Pause music. */
+
+function playPause() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) {
+        audio.play();
+        $('#playIcon').removeClass();
+        $('#playIcon').addClass('glyphicon glyphicon-pause');
+
+    } else {
+        audio.pause();
+        $('#playIcon').removeClass();
+        $('#playIcon').addClass('glyphicon glyphicon-play');
+    }
+}
+listenAjax();
+
+// <div class="playDiv">
+//     <audio controls loop hidden id="audio" src=""></audio>
+//     <button id="playButton"><span id="playIcon" class="glyphicon glyphicon-play"></span></button>
+//     </div>
