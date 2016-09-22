@@ -7,7 +7,7 @@ var score_box_data = null; // ** Holds all the data from the fantasy website
 
     function format_time(timeX) {
         var str = timeX;
-        var index = str.indexOf("T")
+        var index = str.indexOf("T");
         var time = str.slice(index + 1);
         var hour = Number(time.slice(0,2));
         var min = time.slice(2);
@@ -20,16 +20,15 @@ var score_box_data = null; // ** Holds all the data from the fantasy website
             set = "PM"
         }
         var date = str.slice(0, index);
-        var year = date.slice(0,4)
-        var month = date.slice(5,7)
-        var day = date.slice(8)
-        console.log(day)
+        var year = date.slice(0,4);
+        var month = date.slice(5,7);
+        var day = date.slice(8);
+        console.log(day);
         return hour + min + " " +set + " "+ month + "/" + day + "/" + year;
     }
 
 
 function score_box(season, week){
-    console.log("yayaya");
     var data_url = "https://api.fantasydata.net/v3/nfl/stats/JSON/BoxScores/"; //2016/2?
     data_url += season + "/" + week + "?";
 
@@ -54,7 +53,6 @@ function score_box(season, week){
                 score_box_data = data;
                 //display_data(season, week);
                 generate_schedule_d();
-                generate_schedule_m();
                 flags();
 
             })
@@ -95,6 +93,8 @@ $(document).ready( function (){
     set_date();
     gen_weeks(current_week);
 });
+
+//generating nfl week selection options
 function gen_weeks(val){
 
     for(i=1; i<=17;i++) {
@@ -131,7 +131,7 @@ function gen_weeks(val){
         })()
     }
 }
-
+//shows current date
 function set_date(){
     var date = new Date();
     var local_date =date.toLocaleDateString();
@@ -140,6 +140,7 @@ function set_date(){
     $('.date').append(total_date);
 }
 
+//applys click handlers
 function click_handlers (){
     $('.down').click(function (){
         console.log("click!");
@@ -148,9 +149,11 @@ function click_handlers (){
         var away_team = $(this).data('away_team');
         console.log("home team: "+home_team);
         console.log("away team: "+away_team);
+
+        //opens and closes news menu
         $('#game_menu'+data).slideToggle();
 
-
+        // makes menu buttons display correct direction arrow and more/less news, saves position states in array of flag variables
         if(up_down_flag[data] == "down") {
             $('#down'+data).removeClass().addClass('up');
             $('#info'+data).text('LESS NEWS');
@@ -163,10 +166,12 @@ function click_handlers (){
         }
     })
 };
-
+    //generates the information on the page
 function generate_schedule_d() {
     number_of_games = score_box_data.length;
     for (i = 0; i < score_box_data.length; i++) {
+
+        //saving games information from football api
         var general_game_data = score_box_data[i].Score;
         var home_team = general_game_data.HomeTeam;
         var home_score = general_game_data.HomeScore;
@@ -179,17 +184,48 @@ function generate_schedule_d() {
         var forecast_temp_low = general_game_data.ForecastTempLow;
         var forcast_wind = general_game_data.ForecastWindSpeed;
 
+        //converting football api weather format to get pictures to load
+        if(forecast_description == 'Mostly Sunny'){
+            forecast_description1 = 'Mostly_Sunny';
+        }
+        else if(forecast_description == 'Partly Cloudy'){
+            forecast_description1 = 'Partly_Cloudy';
+        }
+        else if(forecast_description == 'Scattered Thunderstorms'){
+            forecast_description1 = 'Scattered_Thunderstorms';
+        }
+        else{
+            var forecast_description1 = forecast_description;
+        }
+        //adding weather information from football api
+        if(forecast_description != null){
+            var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').html(forecast_description + "<br>" + "High: " + forecast_temp_high + "&#8457" + "<br>" + "Low: " + forecast_temp_low + "&#8457" + "<br>" + "Wind Speed:" + forcast_wind + "<br>");
+        }
+        else{
+            var weather1 = $('<div>').text('Weather is not yet available').addClass('weather');
+        }
+        //container for game info
         var game1 = $('<div>').attr('id', 'game' + i).addClass('game_box');
-        var score1 = $('<div>').attr('id', 'score' + i).addClass('score');
-        var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video').text('video stuffs here');
-        var news1 = $('<div>').attr('id', 'news' + i).addClass('news').text('twitter stuffs');
-        var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').html(forecast_description + "<br>" + "High: " + forecast_temp_high + "&#8457" + "<br>" + "Low: " + forecast_temp_low + "&#8457" + "<br>" + "Wind Speed:" + forcast_wind + "<br>");
         var game_menu = $('<div>').attr('id', 'game_menu' + i).addClass('game_menu');
+
+        //menu button
         var down1 = $('<div>').addClass('down').data('position',i).data('away_team',away_team).data('home_team',home_team).attr('id', 'down' + i);
+
+        //twitter and youtube feed container
+        var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-4').text('video stuffs here');
+        var vid2 = $('<div>').attr('id', 'vid' + i).addClass('video col-sm-4').text('video stuffs here');
+        var news1 = $('<div>').attr('id', 'news' + i).addClass('news col-sm-7').text('twitter stuffs');
+        var news2 = $('<div>').attr('id', 'news' + i).addClass('news col-sm-7').text('twitter stuffs');
+
+        //scores and weather
+        var score1 = $('<div>').attr('id', 'score' + i).addClass('score');
+        var weather_picture=$('<div>').css('background-image','url(images/'+forecast_description1+'.gif)').addClass('weather_picture');
         var info1=$('<div>').addClass('info').text('MORE NEWS').attr('id', 'info' + i);
+
         $('.landing1').append(game1,game_menu);
-        $('#game_menu'+i).append(news1,vid1);
+        $('#game_menu'+i).append(news1,vid1,news2,vid2);
         $('#game'+i).append(weather1,score1,info1,down1);
+        $('#weather'+i).prepend(weather_picture);
 
         var home_team1 = $('<div>').attr('id', 'home_team' + i).addClass('score_board').text(home_team);
         var game_time1 = $('<div>').attr('id', 'game_time' + i).addClass('score_board');
@@ -221,32 +257,8 @@ function generate_schedule_d() {
             $('.landing1').append(game1,game_menu);
         }
         else {
-
             $('.landing2').append(game1,game_menu);
-
         }
     }
     click_handlers();
-}
-function generate_schedule_m() {
-    var number_of_games = 16;
-    for (i = 0; i < number_of_games; i++) {
-        var game1 = $('<div>').attr('id', 'game_m' + i).addClass('game_box');
-        var score1 = $('<div>').attr('id', 'score_m' + i).addClass('score');
-        var vid1 = $('<div>').attr('id', 'vid' + i).addClass('video').text('video stuffs here');
-        var news1 = $('<div>').attr('id', 'news' + i).addClass('news').text('twitter stuffs');
-        var weather1 = $('<div>').attr('id', 'weather' + i).addClass('weather').text('weather stuffs');
-        var game_menu = $('<div>').attr('id', 'game_menu_m' + i).addClass('game_menu');
-        var down1 = $('<div>').addClass('down').data('position',i).attr('id', 'down' + i);
-        var info1=$('<div>').addClass('info').text('MORE NEWS').attr('id', 'info' + i);
-        $('.landing3').append(game1,game_menu,down1);
-        $('#game_menu_m'+i).append(news1,vid1);
-        $('#game_m'+i).append(weather1,score1,info1,down1);
-
-        var home_team1 = $('<div>').attr('id', 'home_team' + i).addClass('score_board');
-        var game_time1 = $('<div>').attr('id', 'game_time' + i).addClass('score_board');
-        var away_team1 = $('<div>').attr('id', 'away_team' + i).addClass('score_board');
-        $('#score_m'+i).append(away_team1,game_time1,home_team1)
-
-    }
 }

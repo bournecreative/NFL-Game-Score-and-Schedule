@@ -27,8 +27,8 @@ header > div{
 /* navigation */
 
 .wrapper {
+    padding-top: 20px;
     text-align: center;
-    margin: 20px 0;
 }
 
 .list-wrapper{
@@ -55,6 +55,7 @@ header > div{
 }
 
 a{
+    margin-left: 5px;
     color: black !important;
     text-decoration: none !important;
     border-bottom: none;
@@ -62,27 +63,30 @@ a{
 
 
 a:hover {
-    color: black;
-    border-bottom: 3px solid red !important;
+    color: #D50A0A!important;
+    font-weight: bolder;
 }
 
 /* end of navigation */
 
 .landing1{
-    width: 48vw;
+    width: 95%;
 }
 .landing2{
-    width: 48vw;
+    width: 95%;
 }
 
 .game_box{
     width: 85%;
     height: 225px;
     margin: auto;
-    border: 2px solid lightgray;
+    border: 2px solid lightgrey;
     box-sizing: border-box;
+    border-bottom:25px solid lightgrey;
     margin-top: 20px;
+    border-radius: 10px 10px 0 0;
 }
+
 .score{
     width: 70%;
     height: 57%;
@@ -91,30 +95,27 @@ a:hover {
     display:flex;
 }
 .video{
-    margin-top: 10px;
-    width: 50%;
-    height: 50%;
-    margin-left: 10px;
     border: 2px solid black;
-    display:inline-block;
+    margin: 10px;
+    height:40%;
 }
 
 .news{
-    margin-top: 10px;
-    width: 70%;
-    height: 70px;
     border: 2px solid black;
-    display:inline-block;
+    margin: 10px;
+    height:40%;
 }
 
 .weather{
-    width: 15%;
-    height: 125px;
-    margin-right: 5%;
-    margin-top: 3%;
-    border: 2px solid lightgray;
+    width: 22%;
+    height: 100px;
+    margin-right: 3%;
+    margin-top: 5%;
     display:inline-block;
-    float:right
+    float:right;
+    font-size: .9vw;
+    font-family: Arial;
+    font-weight: bold;
 }
 
 /*
@@ -148,26 +149,31 @@ a:hover {
     margin: auto;
 }
 .down{
-    height:34px;
+    height:33px;
     width:100%;
     background-color: lightgrey;
-    background-image: url(images/arrow-down-01-128.png);
+    background-image: url(images/downlight.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 5%;
     background-position: center;
     margin: auto;
+}
+.down:hover{
+    background-image: url(images/downdark.png);
 }
 .up {
     height: 35px;
     width: 100%;
     background-color: lightgrey;
-    background-image: url(images/up-arrow.png);
+    background-image: url(images/lightup.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 5%;
     background-position: center;
     margin: auto;
 }
-
+.up:hover{
+    background-image: url(images/darkup.png);
+}
 .down:hover, .up:hover{
     cursor:pointer;
 }
@@ -175,7 +181,7 @@ a:hover {
 .info {
     font-weight: bold;
     padding-top: 10px;
-    height: 35px;
+    height: 40px;
     width: 100%;
     background-color: lightgrey;
     text-align: center;
@@ -200,7 +206,7 @@ a:hover {
     margin-top:5px;
 }
 .current{
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #D50A0A;
 }
 .score_numbers{
     width: 100%;
@@ -209,5 +215,18 @@ a:hover {
     font-weight: bold;
 }
 .score_time{
+    margin-top: 20%;
     align-text:center;
+}
+.weather_picture{
+    width:50%;
+    height: 20%;
+    background-size:contain;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+img{
+    height: 100px;
+    width: 100px;
 }

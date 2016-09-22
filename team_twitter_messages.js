@@ -1,7 +1,7 @@
 get_twitter_text("OAK");
 
 function get_twitter_text(team) {
-  
+
   var nfl_twitter_handles = ["Ravens","Bengals", "Browns", "steelers", "ChicagoBears",
     "Lions", "packers", "Vikings", "HoustonTexans", "Colts", "Jaguars", "Titans", "AtlantaFalcons",
     "Panthers", "Saints", "TBBuccaneers", "buffalobills", "MiamiDolphins", "nyjets", "dallascowboys",

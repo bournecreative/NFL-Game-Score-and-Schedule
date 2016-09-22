@@ -33,8 +33,8 @@ function ajaxYoutube(teams_names) {
             console.log(video_id);
             console.log('result', video_id);
             var url = 'https://www.youtube.com/embed/' + video_id;
-            // video_id = $('<video>').addClass("video").attr('src', url).css('width', "320", 'height', '240');
-            // $('body').append(video_id);
+         //   video_id = $('<video>').addClass("video").attr('src', url).css('width', "320", 'height', '240');
+          //  $('body').append(video_id);
             var youVideo = $('iframe').attr('src', url);
             console.log(youVideo);
 
