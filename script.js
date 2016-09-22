@@ -42,7 +42,7 @@ function score_box(season, week){
             url: data_url + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","d45a86224730419e9ad259d2353105ad");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","ea1c07189099485792bd67d9f4501cdc");
             },
             type: "GET",
             // Request body
