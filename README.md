@@ -10,4 +10,4 @@ Collaborating with a small team, leverage web API’s to build an application to
 <img src="../README_assets/desktop-NFL-game-schedule.jpg"/>
 
 ### Screen capture of mobile view
-<img src="../README_assets/mobile-NFL-game-schedule.jpg"/>
+<img src="../README_assets/mobile-NFL-game-schedule.jpg" width="400px"/>
